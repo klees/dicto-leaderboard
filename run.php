@@ -45,8 +45,8 @@ while(true) {
 	chdir(__DIR__."/ILIAS");
 	system("git checkout -f $hash");
 	chdir(__DIR__);
-	system("php7 ./dicto.phar analyze ./config.yaml");
-	system("php7 ./dicto.phar report total ./config.yaml > ./results/$hash.report");
+	system("php ./dicto.phar analyze ./config.yaml");
+	system("php ./dicto.phar report total ./config.yaml > ./results/$hash.report");
 	list($hash2, $violations) = read_result($hash);
 	assert($hash == $hash2, "Hashes from result and scan did not match.");
 	write_result($hash, $date, $author, $violations);
